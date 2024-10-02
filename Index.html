@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal's Epic 20th Birthday Extravaganza!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: var(--primary-color);
+            text-shadow: 2px 2px var(--secondary-color);
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .birthday-cake {
+            font-size: 150px;
+            text-align: center;
+            animation: bounce 2s infinite, rotate 10s linear infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(0deg);}
+            40% {transform: translateY(-30px) rotate(5deg);}
+            60% {transform: translateY(-15px) rotate(-5deg);}
+        }
+
+        @keyframes rotate {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+        }
+
+        .mirror-effect {
+            transform: scaleX(-1);
+            display: inline-block;
+            font-size: 100px;
+        }
+
+        .beat-visualizer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 150px;
+        }
+
+        .beat-bar {
+            width: 15px;
+            background-color: var(--primary-color);
+            margin: 0 3px;
+            animation: beatAnimation 0.5s infinite alternate;
+        }
+
+        @keyframes beatAnimation {
+            0% {height: 20px;}
+            100% {height: 150px;}
+        }
+
+        .crown {
+            font-size: 80px;
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {transform: translateY(0px);}
+            50% {transform: translateY(-20px);}
+            100% {transform: translateY(0px);}
+        }
+
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .confetti {
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {transform: translateY(-100px) rotate(0deg);}
+            100% {transform: translateY(100vh) rotate(720deg);}
+        }
+
+        .rapper-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .rapper-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .rapper-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .rapper-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        #age-calculator {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .quote-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        #birthday-countdown {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .glitch-effect {
+            animation: glitch 1s linear infinite;
+            position: relative;
+        }
+
+        @keyframes glitch {
+            2%, 64% {
+                transform: translate(2px,0) skew(0deg);
+            }
+            4%, 60% {
+                transform: translate(-2px,0) skew(0deg);
+            }
+            62% {
+                transform: translate(0,0) skew(5deg); 
+            }
+        }
+
+        .glitch-effect:before,
+        .glitch-effect:after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-effect:before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-effect:after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(70px, 9999px, 71px, 0);
+                transform: skew(0.52deg);
+            }
+            100% {
+                clip: rect(98px, 9999px, 72px, 0);
+                transform: skew(0.58deg);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(36px, 9999px, 71px, 0);
+                transform: skew(0.85deg);
+            }
+            100% {
+                clip: rect(98px, 9999px, 72px, 0);
+                transform: skew(0.58deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="glitch-effect" data-text="Happy 20th Birthday, Vishal!">Happy 20th Birthday, Vishal!</h1>
+        <div class="birthday-cake">🎂</div>
+        
+        <div class="section">
+            <h2>Looksmaxxing Supreme 💪</h2>
+            <p>Behold, the pinnacle of human aesthetics! Vishal, you're not just looksmaxxing, you're redefining beauty standards!</p>
+            <div class="mirror-effect">👤</div> 👤
+        </div>
+        
+        <div class="section">
+            <h2>Desi Hip Hop Maestro 🎵</h2>
+            <p>Drop that beat! It's time to celebrate with some fire tracks from the kings of Desi Hip Hop!</p>
+            <div class="rapper-section">
+                <div class="rapper-card">
+                    <img src="https://blackhattalent.com/wp-content/uploads/2023/07/krsna1617891000.jpg" alt="Kr$na" class="rapper-image">
+                    <h3>Kr$na</h3>
+                    <p>The OG of Indian Hip Hop</p>
+                </div>
+                <div class="rapper-card">
+                    <img src="https://blog.chillme.in/wp-content/uploads/2023/05/Karma.jpg" alt="Karma" class="rapper-image">
+                    <h3>Karma</h3>
+                    <p>The lyrical genius</p>
+                </div>
+            </div>
+            <div class="beat-visualizer">
+                <div class="beat-bar"></div>
+                <div class="beat-bar"></div>
+                <div class="beat-bar"></div>
+                <div class="beat-bar"></div>
+                <div class="beat-bar"></div>
+                <div class="beat-bar"></div>
+                <div class="beat-bar"></div>
+                <div class="beat-bar"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Supreme Overlord Vishal 👑</h2>
+            <p>All hail the birthday king! Your superiority knows no bounds, and your reign is eternal!</p>
+            <div class="crown">👑</div>
+            <div class="quote-box">
+                <p id="superiority-quote">"I'm not saying I'm better than everyone else. Oh wait, yes I am." - Vishal, probably</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Age is Just a Number (But Your Number is Pretty Cool) 🎉</h2>
+            <div id="age-calculator">
+                <p>You've been gracing this planet for:</p>
+                <p id="age-breakdown"></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Countdown to Your Next Level-Up 🚀</h2>
+            <div id="birthday-countdown"></div>
+        </div>
+
+        <div id="birthdayWish"></div>
+    </div>
+
+    <div class="fireworks" id="fireworks"></div>
+
+    <script>
+        // Birthday wish generator
+        const wishes = [
+            "May your looksmaxxing game be stronger than Kr$na's bars!",
+            "Another year of being absolutely superior to everyone else!",
+            "May your playlist be fire and your swag be eternal!",
+            "Twenty years of pure awesomeness and counting!",
+            "Keep shining brighter than all the plebs around you!",
+            "Your superiority level just increased by 1!",
+            "May your rhymes be as sick as your gains!",
+            "Level 20 unlocked: New perks include enhanced superiority and increased swag!"
+        ];
+
+        function generateWish() {
+            const wish = wishes[Math.floor(Math.random() * wishes.length)];
+            document.getElementById('birthdayWish').innerHTML = `<h3>${wish}</h3>`;
+        }
+
+        setInterval(generateWish, 5000);
+
+        // Fireworks effect
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'confetti';
+            firework.style.left = Math.random() * 100 + 'vw';
+            firework.style.animationDuration = Math.random() * 3 + 2 + 's';
+            firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.getElementById('fireworks').appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 5000);
+        }
+
+        setInterval(createFirework, 50);
+
+        // Age calculator
+        function calculateAge() {
+            const birthday = new Date(2004, 9, 2); // Assuming Vishal's birthday is October 2, 2004
+            const now = new Date();
+            const ageDate = new Date(now - birthday);
+            const years = Math.abs(ageDate.getUTCFullYear() - 1970);
+            const months = ageDate.getUTCMonth();
+            const days = ageDate.getUTCDate() - 1;
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            document.getElementById('age-breakdown').innerHTML = `
+                ${years} years, ${months} months, ${days} days<br>
+                ${hours} hours, ${minutes} minutes, ${seconds} seconds
+            `;
+        }
+
+        setInterval(calculateAge, 1000);
+
+        // Birthday countdown
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const nextBirthday = new Date(currentYear, 9, 2); // October 2nd
+
+            if (now > nextBirthday) {
+                nextBirthday.setFullYear(currentYear + 1);
+            }
+
+            const diff = nextBirthday - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('birthday-countdown').innerHTML = `
+                Next birthday in: ${days}d ${hours}h ${minutes}m ${seconds}s
+            `;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        // Superiority quotes
+        const superiorityQuotes = [
+            "I'm not saying I'm better than everyone else. Oh wait, yes I am.",
+            "I don't always listen to music, but when I do, it's better than yours.",
+            "My swag is so powerful, it has its own gravitational pull.",
+            "I'm not perfect, but I'm so close it scares me.",
+            "I'm not arguing, I'm just explaining why I'm right.",
+            "I don't need Google, I already know everything.",
+            "I'm not bossy, I just have better ideas.",
+            "I'm not late, everyone else is simply early."
+        ];
+
+        function changeQuote() {
+            const quote = superiorityQuotes[Math.floor(Math.random() * superiorityQuotes.length)];
+            document.getElementById('superiority-quote').innerText = `"${quote}" - Vishal, probably`;
+        }
+
+        setInterval(changeQuote, 10000);
+
+        // Easter egg
+        let clicks = 0;
+        document.addEventListener('click', () => {
+            clicks++;
+            if (clicks === 20) {
+                alert("You've discovered the secret click! Vishal is not just superior, he's THE CHOSEN ONE! 🎉🎊");
+                document.body.style.backgroundImage = "url('https://media.giphy.com/media/3o7abBAEIlO4kWucQ8/giphy.gif')";
+            }
+        });
+
+        // Surprise audio
+        const audioSurprise = new Audio('https://www.myinstants.com/media/sounds/anime-wow-sound-effect.mp3');
+        setTimeout(() => {
+            audioSurprise.play();
+        }, 10000);
+    </script>
+</body>
+</html>
